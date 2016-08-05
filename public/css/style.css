@@ -1,9 +1,5 @@
-// @import "node_modules/bootstrap-sass/assets/stylesheets/bootstrap";
-
-$background-color : pink;
-
-body {
-	background-color: $background-color;
+/*body {
+	background-color: pink;
 }
 
 html, body {
@@ -32,4 +28,4 @@ body {
 
 .title {
     font-size: 96px;
-}
+}*/
