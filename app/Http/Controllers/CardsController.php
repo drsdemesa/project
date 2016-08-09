@@ -26,7 +26,7 @@ class CardsController extends Controller
     public function show(Card $card){ //wildcard on routes.php calling this function must match the parameter of this function
         // return $card; //here you don't have the notes
         // //return $card->notes[0]->user; //this loads three different queries: solution is earger loading all that you need beforehand
-        $card = Card::with('notes.user')->find(1);
+        $card = Card::with('notes.user')->find(1); 
     	return view('cards.show', compact('card'));
     }
 }
