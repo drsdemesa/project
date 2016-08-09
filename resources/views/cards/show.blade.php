@@ -22,15 +22,22 @@
 
 			<form method="POST" action="/cards/{{ $card->id }}/notes">
 				<div class="form-group">
-					<input type="hidden" name="user_id" value="1">
 					<textarea class="form-control" name="body" id="" cols="30" rows="10"></textarea>
-					<input type="hidden" name="_token" value="{{ csrf_token() }}">
+					{{ csrf_field() }}
 				</div>
 				<div class="form-group">
 					<button type="submit" class="btn btn-primary">Add Note</button>
 					<button type="submit" class="btn btn-primary">Back</button>
 				</div>
 			</form>
+
+			@if(count($errors))
+				<ul>
+					@foreach ($errors->all() as $error)
+						<li>{{ $error }}</li>
+					@endforeach
+				</ul>
+			@endif
 		</div>
 	</div>
 @stop

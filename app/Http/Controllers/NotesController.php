@@ -45,9 +45,18 @@ class NotesController extends Controller
    		//$card->notes()->create($request->all()); //potentially dangerous as we don't know what are being submitted in the form, but we are protected by the fillable feature in laravel
 
    		//option 6 
-   		$card->addNote(
-   			new Note($request->all())
-   		);
+   		// $card->addNote(
+   		// 	new Note($request->all())
+   		// );
+
+         $this->validate($request, [
+            'body' => 'required'
+         ]);
+         $note = new Note($request->all());
+        // $note->by(1); //Auth::id();
+         $note->user_id = 1; 
+
+         $card->addNote($note);
 
    		//return $request->all();
    		// return \Request::all();
