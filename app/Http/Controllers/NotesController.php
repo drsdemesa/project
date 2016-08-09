@@ -50,7 +50,7 @@ class NotesController extends Controller
    		// );
 
          $this->validate($request, [
-            'body' => 'required'
+            'body' => 'required|min:10|unique:notes,body'
          ]);
          $note = new Note($request->all());
         // $note->by(1); //Auth::id();
