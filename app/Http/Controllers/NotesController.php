@@ -8,10 +8,18 @@ use Illuminate\Http\Request;
 
 class NotesController extends Controller
 {
-	// public function store (Request $request)
- //    {
- //    	return $request->all();
- //    }  
+	public function edit (Note $note)
+	{
+		return view('notes.edit', compact('note'));
+	}
+
+	public function update (Request $request, Note $note)
+	{
+		//dd('hit');
+		$note->update($request->all());	//update receives an array containing all the fields to be updated, update([]), dangerous and needs validation before saving
+		return back();
+	}
+
  	public function store (Request $request, Card $card)
    	{
    		//option 1
@@ -41,6 +49,7 @@ class NotesController extends Controller
    			new Note($request->all())
    		);
 
+   		//return $request->all();
    		// return \Request::all();
    		//return request()->all();
    		//return \Redirect::to('/some/new/uri');

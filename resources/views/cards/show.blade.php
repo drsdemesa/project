@@ -8,7 +8,11 @@
 
 			<ul class="list-group">
 				@foreach($card->notes as $note)
-					<li class="list-group-item">{{ $note->body }}</li>
+					<li class="list-group-item">
+						{{ $note->body }} 
+						<a href="#" style="float:right">{{ $note->user->username }}</a>
+						<a href="/notes/{{ $note->id }}/edit"><span class="glyphicon glyphicon-pencil"></span></a>
+					</li>
 				@endforeach
 			</ul>
 
@@ -23,6 +27,7 @@
 				</div>
 				<div class="form-group">
 					<button type="submit" class="btn btn-primary">Add Note</button>
+					<button type="submit" class="btn btn-primary">Back</button>
 				</div>
 			</form>
 		</div>
